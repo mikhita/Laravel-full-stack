@@ -1,6 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\BlogController;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,55 +24,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('home', function () {
-    $blogs = [
-        [
-            'title' => 'title one',
-            'body' => 'this is a body',
-            'status' => 1 
-        ],
-        [
-            'title' => 'title two',
-            'body' => 'this is a body',
-            'status' => 0 
-        ],
-        [
-            'title' => 'title three',
-            'body' => 'this is a body',
-            'status' => 1
-        ],
-        [
-            'title' => 'title four',
-            'body' => 'this is a body',
-            'status' => 1  
-        ]
-    ];
-    return view('home', compact('blogs'));
-});
+Route::get('/home', [HomeController::class, 'index']);
 
-Route::get('about', function() {
-    $about = "About Page"; 
-    $about2 = "About Page 2";
-    return view('about.index', compact('about', 'about2'));
-})->name('about');
+Route::get('/about', [AboutController::class, 'index'])->name('about');
 
-Route::get('/contact', function(){
-    return view('contact');
-})->name('contact');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+
+Route::resource('/blog', BlogController::class);
 
 
 
-Route::group(['prefix' => 'costumer'], function() {
-    Route::get('/', function(){
-        return "<h1>Costumer List</h1>";
-    });
-    Route::get('/show', function(){
-        return "<h1>Costumeer Show</h1>";
-    });
-    Route::get('/create', function(){
-        return "<h1>Costumer Create</h1>";
-    });
-});
 
 Route::fallback(function(){
     return "Route doesnt exists!";
