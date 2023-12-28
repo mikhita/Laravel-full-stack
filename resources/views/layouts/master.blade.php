@@ -8,13 +8,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    @include('layouts.header');
+    @include('layouts.header')
 
         <!-- Begin page content -->
 
-        @yield('content');
+        @yield('content')
 
-    @include('layouts.footer');
+    @include('layouts.footer')
       
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>

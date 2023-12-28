@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index(){
+    /**
+     * Handle the incoming request.
+     */
+    public function __invoke(Request $request)
+    {
+       
         $blogs = [
             [
                 'title' => 'title one',
@@ -31,4 +36,5 @@ class HomeController extends Controller
         ];
         return view('home', compact('blogs'));
        }
+    
 }
