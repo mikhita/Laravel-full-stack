@@ -7,7 +7,7 @@
             <div class="alert alert-danger">{{$error}}</div>
         @endforeach
     @endif
-    <img src="{{asset('storage/images/new_image.webp')}}" alt="" style="width: 50%">
+    {{-- <img src="{{asset('storage/images/new_image.webp')}}" alt="" style="width: 50%"> --}}
     <div class="col-md-4 mt-5">
         <div class="card">
             <div class="card-body">
@@ -24,6 +24,7 @@
             </div>
         </div>
     </div>
+    <a href="{{route('download')}}" class="btn btn-primary mt-3">Download Image</a>
 </main>
 
   

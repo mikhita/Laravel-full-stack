@@ -33,6 +33,8 @@ Route::get('/about', [AboutController::class, 'index'])->name('about');
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
+Route::get('/download', [ImageController::class, 'download'])->name('download');
+
 Route::get('/success', function(){
     return '<h1>image uploaded successfully</h1>';
 })->name('success');
