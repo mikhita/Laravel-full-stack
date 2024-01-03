@@ -6,6 +6,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ImageController;
 
 
 
@@ -37,6 +38,8 @@ Route::resource('/blog', BlogController::class);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 
 Route::post('/login', [LoginController::class, 'handleLogin'])->name('login.submit');
+
+Route::post('upload-file', [ImageController::class, 'handleImage'])->name('upload-file');
 
 
 
