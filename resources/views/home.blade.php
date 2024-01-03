@@ -2,6 +2,11 @@
 
 @section('content')
 <main role="main" class="container">
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <div class="alert alert-danger">{{$error}}</div>
+        @endforeach
+    @endif
     <img src="{{asset('storage/images/new_image.webp')}}" alt="" style="width: 50%">
     <div class="col-md-4 mt-5">
         <div class="card">
