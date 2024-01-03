@@ -2,7 +2,7 @@
 
 @section('content')
 <main role="main" class="container">
-    <img src="{{asset('storage/images/new_image.webp')}}" alt="">
+    <img src="{{asset('storage/images/new_image.webp')}}" alt="" style="width: 50%">
     <div class="col-md-4 mt-5">
         <div class="card">
             <div class="card-body">

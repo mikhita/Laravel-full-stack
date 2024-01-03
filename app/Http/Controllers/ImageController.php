@@ -8,6 +8,6 @@ class ImageController extends Controller
 {
     public function handleImage(Request $request)
     {
-        $request->image->storeAs('/images', 'new_image.webp');
+        $request->image->storeAs('/images', 'new_image2.webp');
     }
 }
