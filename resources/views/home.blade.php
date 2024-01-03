@@ -2,34 +2,22 @@
 
 @section('content')
 <main role="main" class="container">
-    <h1 class="mt-5 text-danger">Home</h1>
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum pariatur ratione quaerat vero a, ullam reiciendis earum distinctio nihil exercitationem quidem neque odit aliquid quasi esse, repudiandae, adipisci non placeat.
-    <div class="row mt-5">
-        @foreach ($blogs as $blog )
-            @if ($blog['status'] == 1)
+    <div class="row">
+        @foreach ($posts as $post)   
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        <h1>{{$blog['title']}}</h1>
-                        <p>{{$blog['body']}}</p>
+                        <h4>{{$post->title}}</h4>
+                        <p>{{$post->description}}</p>
+                        <ul>
+                            @foreach ($post->tags as $tag)
+                               <li>{{$tag->name}}</li> 
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
             </div>
-            @else
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h1>{{$blog['title']}}</h1>
-                        <p>{{$blog['body']}}</p>
-                        <div class="btn-sm btn-warning">Pending</div>
-                    </div>
-                </div>
-            </div>
-            @endif
-            
-            
-        @endforeach 
-    
+        @endforeach
     </div>
   </main>
 

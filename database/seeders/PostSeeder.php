@@ -17,12 +17,10 @@ class PostSeeder extends Seeder
         for ($i=0; $i < 3 ; $i++) { 
             DB::table('posts')->insert([
                 'title' => Str::random(20),
+                'description' => Str::random(20),
                 'status' => 1,
                 'publish_date' => date('Y-m-d'),
                 'user_id' => 1,
-                'decimal' => 0.00,
-                'float' => 0.0,
-                'integer' => 0,
             ]);
         }
     }

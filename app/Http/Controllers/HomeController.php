@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Post;
+use App\Models\User;
+use App\Models\Address;
+use App\Models\Category;
+use App\Models\Tag;
+
 
 class HomeController extends Controller
 {
@@ -12,13 +18,15 @@ class HomeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return DB::table('posts')->join('categories', 'posts.category_id', '=', 'categories.id')
-        ->select('posts.title')
-        ->get();
+        // $categories = Category::find(1)->posts;
+        $posts = Post::with('tags')->get();
+        $tag = Tag::first();
 
-        dd('sucsess');
-       
-        // return view('home', compact('blogs'));
+        // $post->tags()->attach([2,3,4]);
+        // return $posts;
+        return view('home', compact('posts'));
+
+
     }
     
 }
