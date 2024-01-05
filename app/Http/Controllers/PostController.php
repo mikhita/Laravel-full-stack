@@ -4,15 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class BlogController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-
     public function index()
     {
-        //
+        return view('index');
     }
 
     /**
@@ -20,7 +19,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**

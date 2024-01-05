@@ -7,6 +7,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\PostController;
 
 
 
@@ -27,26 +28,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', HomeController::class);
+// Route::get('/home', HomeController::class);
 
-Route::get('/about', [AboutController::class, 'index'])->name('about');
+// Route::get('/about', [AboutController::class, 'index'])->name('about');
 
-Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+// Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
-Route::get('/download', [ImageController::class, 'download'])->name('download');
+// Route::get('/download', [ImageController::class, 'download'])->name('download');
 
-Route::get('/success', function(){
-    return '<h1>image uploaded successfully</h1>';
-})->name('success');
+// Route::get('/success', function(){
+//     return '<h1>image uploaded successfully</h1>';
+// })->name('success');
 
 
-Route::resource('/blog', BlogController::class);
+Route::resource('posts', PostController::class);
 
-Route::get('/login', [LoginController::class, 'index'])->name('login');
+// Route::get('/login', [LoginController::class, 'index'])->name('login');
 
-Route::post('/login', [LoginController::class, 'handleLogin'])->name('login.submit');
+// Route::post('/login', [LoginController::class, 'handleLogin'])->name('login.submit');
 
-Route::post('upload-file', [ImageController::class, 'handleImage'])->name('upload-file');
+// Route::post('upload-file', [ImageController::class, 'handleImage'])->name('upload-file');
 
 
 
