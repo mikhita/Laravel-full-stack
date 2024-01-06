@@ -40,6 +40,9 @@ Route::get('/', function () {
 //     return '<h1>image uploaded successfully</h1>';
 // })->name('success');
 
+Route::get('posts/trash', [PostController::class, 'trashed'])->name('posts.trashed');
+Route::get('posts/{id}/restore', [PostController::class, 'restore'])->name('posts.restored');
+
 
 Route::resource('posts', PostController::class);
 
