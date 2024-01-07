@@ -22,7 +22,7 @@
                 <th scope="col" style="width: 30%">Description</th>
                 <th scope="col" style="width: 10%">Category</th>
                 <th scope="col" style="width: 10%">Publish Date</th>
-                <th scope="col" style="width: 20%">Action</th>
+                <th scope="col" style="width: 20%">Actions</th>
 
               </tr>
             </thead>
@@ -35,13 +35,13 @@
                   </td>
                   <td>{{$post->title}}</td>
                   <td>{{$post->description}}</td>
-                  <td>{{$post->category_id}}</td>
+                  <td>{{$post->category->name}}</td>
                   <td>{{date('d-m-y', strtotime($post->created_at))}}</td>
                   <td>
                     <div class="d-flex">
                         <a href="{{route('posts.restored', $post->id)}}" class="btn-sm btn-success btn">Restore</a>
 
-                        <form action="{{route('posts.destroy', $post->id)}}" method="POST">
+                        <form action="{{route('posts.force-delete', $post->id)}}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button class="btn-sm btn-danger btn">DELETE</button>
@@ -54,6 +54,7 @@
 
             </tbody>
           </table>
+          {{$posts->links()}}
         </div>
     </div>
 </div>
