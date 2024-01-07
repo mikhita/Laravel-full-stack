@@ -65,7 +65,7 @@ Route::delete('posts/{id}/force-delete', [PostController::class, 'forceDelete'])
 
 
 
-Route::resource('posts', PostController::class);
+Route::resource('posts', PostController::class)->middleware('authCheck');
 
 // Route::get('/login', [LoginController::class, 'index'])->name('login');
 
