@@ -50,7 +50,7 @@ Route::get('/unavailable', function(){
     return view('unavailable');
 })->name('unavailable');
 
-Route::group([], function(){
+Route::group(['middleware' => 'authCheck'], function(){
     Route::get('/dashboard', function(){
         return view('dashboard');
     })->name('dashboard');
