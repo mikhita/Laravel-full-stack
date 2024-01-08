@@ -8,6 +8,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\PostController;
+use App\Models\Post;
 // use App\Http\Middleware\CheckCountry;
 
 
@@ -45,7 +46,8 @@ Route::get('/', function () {
 Route::get('posts/trash', [PostController::class, 'trashed'])->name('posts.trashed');
 
 Route::get('/contact', function(){
-    return view('contact');
+    $posts = Post::all();
+    return view('contact', compact('posts'));
 })->name('contact');
 
 Route::get('posts/{id}/restore', [PostController::class, 'restore'])->name('posts.restored');
