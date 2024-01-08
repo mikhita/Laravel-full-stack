@@ -44,6 +44,10 @@ Route::get('/', function () {
 
 Route::get('posts/trash', [PostController::class, 'trashed'])->name('posts.trashed');
 
+Route::get('/contact', function(){
+    return view('contact');
+})->name('contact');
+
 Route::get('posts/{id}/restore', [PostController::class, 'restore'])->name('posts.restored');
 
 Route::get('/unavailable', function(){
@@ -65,7 +69,7 @@ Route::delete('posts/{id}/force-delete', [PostController::class, 'forceDelete'])
 
 
 
-Route::resource('posts', PostController::class)->middleware('authCheck');
+Route::resource('posts', PostController::class);
 
 // Route::get('/login', [LoginController::class, 'index'])->name('login');
 

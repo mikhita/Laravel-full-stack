@@ -9,9 +9,10 @@ use File;
 
 class PostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct(){
+        $this->middleware('authCheck')->only(['create', 'show']);
+    }
+
     public function index()
     {
         $posts = Post::paginate(5);

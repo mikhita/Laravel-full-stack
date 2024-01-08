@@ -1,5 +1,5 @@
 @extends('layouts.master')
 
 @section('content')
-    <h1>The country is not supported</h1>
+    <h1>You dont have a permision to access</h1>
 @endsection
