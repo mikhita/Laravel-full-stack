@@ -12,9 +12,9 @@ class index extends Component
      * Create a new component instance.
      */
     public $post;
-    public function __construct($post)
+    public function __construct()
     {
-        $this->post = $post;
+        // $this->post = $post;
     }
 
     /**
