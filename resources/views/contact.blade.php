@@ -3,6 +3,7 @@
 @section('content')
 
 <div class="row">
+    {{$site_name}}
     @foreach ($posts as $post)
         <x-post.index>
             <x-slot name='title' >
