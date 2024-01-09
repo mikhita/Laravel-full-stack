@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
@@ -79,6 +80,13 @@ Route::resource('posts', PostController::class);
 
 // Route::post('upload-file', [ImageController::class, 'handleImage'])->name('upload-file');
 
+Route::get('send-mail', function(){
+    Mail::raw('Hello this is a test mail', function($message){
+        $message->to('test@gmail.com')->subject('hello from test email');
+    });
+
+    dd('success');
+});
 
 
 
